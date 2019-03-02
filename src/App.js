@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ProductItem from './ProductItem';
 
 const products = [
   {
-    name: 'IPad',
+    name: 'iPad',
     price: 200
   },
   {
@@ -13,23 +13,59 @@ const products = [
   }
 ];
 
-localStorage.setItem('products',)
+localStorage.setItem('products', JSON.stringify(products));
 
 class App extends Component {
-  onChange(event) {
-    console.log(event.target.value);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      products: []
+    };
+
+    this.onDelete = this.onDelete.bind(this); // binding the method to delete button
+  }
+
+
+
+  componentWillMount() {
+    this.getProducts();
+  }
+
+  getProducts() {
+    const products = JSON.parse(localStorage.getItem('products')); // to convert JSON string into JS object (array)
+
+    //console.log(products);
+
+    this.setState({products});
+  }
+
+  onDelete(name) {
+    console.log(name);
+
+    this.setState
   }
 
   render() {
-    const title = 'This is Michael!';
-
-
     return (
       <div className="App">
 
        
-        <h1>{title}</h1>
-        <input onChange={this.onChange}/>
+        <h1>Products Manager</h1>
+        {
+          this.state.products.map(product => {
+            return (
+              <ProductItem
+                key={product.name}
+                name={product.name}
+                price={product.price}
+
+                onDelete={this.onDelete}
+
+              />  
+            );
+          })
+        }
 
       </div>
     );
