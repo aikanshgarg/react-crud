@@ -20,30 +20,34 @@ class App extends Component {
     super(props);
 
     this.state = {
-      products: []
+      products: JSON.parse(localStorage.getItem('products'))
     };
 
     this.onDelete = this.onDelete.bind(this); // binding the method to delete button
   }
 
 
-
   componentWillMount() {
-    this.getProducts();
+    const products = this.getProducts();
+
+    this.setState({ products });
   }
 
   getProducts() {
-    const products = JSON.parse(localStorage.getItem('products')); // to convert JSON string into JS object (array)
+    return this.state.products; // to convert JSON string into JS object (array)
 
-    //console.log(products);
-
-    this.setState({products});
+    //console.log(products);    
   }
 
   onDelete(name) {
-    console.log(name);
+    //console.log(name);
+    const products = this.getProducts();
+    
+    const filteredProducts = products.filter(product => {
+      return product.name !== name;
+    });
 
-    this.setState
+    this.setState({ products: filteredProducts })
   }
 
   render() {
