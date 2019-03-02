@@ -4,14 +4,14 @@ import ProductItem from './ProductItem';
 import AddItem from './AddItem';
 
 const products = [
-  {
-    name: 'iPad',
-    price: 200
-  },
-  {
-    name: 'iPhone',
-    price: 650
-  }
+  // {
+  //   name: 'iPad',
+  //   price: 200
+  // },
+  // {
+  //   name: 'iPhone',
+  //   price: 650
+  // }
 ];
 
 localStorage.setItem('products', JSON.stringify(products));
@@ -82,7 +82,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Products Manager</h1>
+        <h1>Mini Phone Directory</h1>
 
 
         <AddItem

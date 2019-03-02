@@ -20,9 +20,9 @@ class AddItem extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <h3>Add Product</h3>
+        <h3>Add Subscriber</h3>
         <input placeholder="Name" ref={nameInput => this.nameInput = nameInput} />
-        <input placeholder="Price" ref={priceInput => this.priceInput = priceInput} />
+        <input placeholder="Contact No." ref={priceInput => this.priceInput = priceInput} />
         <button>Add</button>
 
         <hr/>

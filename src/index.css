@@ -6,9 +6,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: #eeeeee;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+button {
+	border: none;
+	text-transform: uppercase;
+	padding: .3rem .5rem;
+	border-radius: .2rem;
+	color: #333;
+	background: #eeeeee;
+	cursor: pointer;
+	transition: transform .2s;
+}
+
+button:hover {
+	transform: scale(1.1);
+}
+
+input {
+	background: transparent;
+	border: none;
+	color: #fff;
+	outline: none;
 }
